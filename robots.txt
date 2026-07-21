@@ -1,0 +1,34 @@
+# www - это витрина только для мессенджеров: og-шимы, которые редиректят
+# живого человека на апекс. Для поиска это тонкие дубли, в индекс им нельзя.
+#
+# Поисковики перечислены ПОИМЁННО и намеренно НЕ через "User-agent: *":
+# краулер Telegram (TelegramBot) уважает robots.txt, и любое
+# запрещающее правило со звёздочкой погасит превью - ради которого www и живёт.
+# Канон: prosto-finance.ru остаётся единственным адресом для индексации.
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Mail.RU_Bot
+Disallow: /
