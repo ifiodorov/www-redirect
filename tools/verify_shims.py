@@ -60,6 +60,10 @@ for path in paths:
         problems.append("ЕСТЬ canonical - убьёт карточку")
     if "http-equiv=\"refresh\"" in body:
         problems.append("ЕСТЬ meta refresh - убьёт карточку")
+    # Единственное, что держит www вне поиска: в robots.txt запрета больше нет
+    # (под запретом робот не читает noindex, и адрес оседает в индексе пустым).
+    if not re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', body):
+        problems.append("НЕТ noindex - страница уедет в индекс дублем апекса")
 
     if problems:
         bad.append(f"{path}: {', '.join(problems)}")
@@ -87,4 +91,4 @@ if bad:
     for b in bad:
         print("  -", b)
 else:
-    print("ВСЁ ЧИСТО: страницы и картинки на месте, canonical и refresh нет")
+    print("ВСЁ ЧИСТО: страницы и картинки на месте, noindex стоит, canonical и refresh нет")
