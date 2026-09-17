@@ -5,7 +5,12 @@
 <title>пРОСТо Финансы</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://prosto-finance.ru/">
-<meta http-equiv="refresh" content="0; url=https://prosto-finance.ru/">
+
+<!-- Переброс сохраняет адрес страницы: со старых ссылок вида www/stati/<статья>
+     человек должен попадать на ту же статью на апексе, а не на главную.
+     Здесь НЕ должно быть meta refresh: он умеет вести только на фиксированный
+     адрес, то есть на корень, и при гонке с этим скриптом терял путь.
+     Кто без JS - уходит по видимой ссылке ниже. -->
 <script>
   location.replace("https://prosto-finance.ru" + location.pathname + location.search + location.hash);
 </script>
